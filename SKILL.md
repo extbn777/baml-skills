@@ -128,68 +128,220 @@ All content lives inside this repository. The agent should route to the correct 
 
 ```
 baml-skills/
-├── SKILL.md                          ← This file (entry point)
-│
-├── 01-guide/                         ← Core documentation
-│   ├── introduction.mdx
-│   ├── why-baml.mdx                  ← Why use BAML over alternatives
-│   ├── what-are-function-definitions.mdx
-│   ├── what-is-baml_client.mdx       ← Generated client explanation
-│   ├── what-is-baml_src.mdx          ← baml_src folder explanation
+├── 01-guide
+│   ├── 01-editors
+│   │   ├── claude-code.mdx
+│   │   ├── cursor.mdx
+│   │   ├── jetbrains.mdx
+│   │   ├── others.mdx
+│   │   ├── vscode.mdx
+│   │   └── zed.mdx
+│   ├── 02-languages
+│   │   ├── elixir.mdx
+│   │   ├── go.mdx
+│   │   ├── python.mdx
+│   │   ├── rest.mdx
+│   │   ├── ruby.mdx
+│   │   ├── rust.mdx
+│   │   └── typescript.mdx
+│   ├── 03-development
+│   │   ├── deploying
+│   │   │   ├── aws.mdx
+│   │   │   ├── docker.mdx
+│   │   │   └── openapi.mdx
+│   │   ├── environment-variables.mdx
+│   │   ├── terminal-logs.mdx
+│   │   └── upgrade-baml-versions.mdx
+│   ├── 04-baml-basics
+│   │   ├── abort-signal.mdx
+│   │   ├── concurrent-calls.mdx
+│   │   ├── error-handling.mdx
+│   │   ├── multi-modal.mdx
+│   │   ├── my-first-function.mdx
+│   │   ├── streaming.mdx
+│   │   ├── switching-llms.mdx
+│   │   ├── testing-functions.mdx
+│   │   └── timeouts.mdx
+│   ├── 05-baml-advanced
+│   │   ├── checks-and-asserts.mdx
+│   │   ├── client-registry.mdx
+│   │   ├── collector.mdx
+│   │   ├── dynamic-types.mdx
+│   │   ├── modular-api.mdx
+│   │   ├── prompt-caching.mdx
+│   │   ├── prompt-optimization.mdx
+│   │   └── reusing-prompt-snippets.mdx
+│   ├── 06-prompt-engineering
+│   │   ├── action-items.mdx
+│   │   ├── chain-of-thought.mdx
+│   │   ├── chat-history.mdx
+│   │   ├── classification.mdx
+│   │   ├── hallucinations.mdx
+│   │   ├── pii-data-extraction.mdx
+│   │   ├── rag.mdx
+│   │   ├── symbol-tuning.mdx
+│   │   ├── token-optimization.mdx
+│   │   └── tools.mdx
+│   ├── 07-observability
+│   │   └── studio.mdx
+│   ├── 08-frameworks
+│   │   └── 01-react-nextjs
+│   │       ├── 01-quick-start.mdx
+│   │       └── 02-chatbot.mdx
+│   ├── 09-comparisons
+│   │   ├── ai-sdk.mdx
+│   │   ├── langchain.mdx
+│   │   ├── marvin.mdx
+│   │   ├── openai-sdk.mdx
+│   │   └── pydantic.mdx
 │   ├── contact.mdx
-│   │
-│   ├── 01-editors/                   ← Editor setup (VSCode, etc.)
-│   ├── 02-languages/                 ← Language guides — prioritize TypeScript
-│   ├── 03-development/               ← Development workflow
-│   │
-│   ├── 04-baml-basics/               ← Core BAML usage
-│   │   ├── my-first-function.mdx     ← Hello world / getting started
-│   │   ├── streaming.mdx             ← Streaming LLM responses
-│   │   ├── concurrent-calls.mdx      ← Parallel / concurrent LLM calls
-│   │   ├── multi-modal.mdx           ← Images, audio, documents as input
-│   │   ├── error-handling.mdx        ← Error types and handling patterns
-│   │   ├── abort-signal.mdx          ← Cancelling in-flight requests
-│   │   ├── timeouts.mdx              ← Request timeout configuration
-│   │   ├── switching-llms.mdx        ← Switching providers at runtime
-│   │   └── testing-functions.mdx     ← Writing and running BAML tests
-│   │
-│   ├── 05-baml-advanced/             ← Advanced patterns
-│   ├── 06-prompt-engineering/        ← Jinja2 templates, chat roles, prompt design
-│   ├── 07-observability/             ← Tracing, logging, monitoring
-│   ├── 08-frameworks/                ← Next.js, LangChain, LlamaIndex, etc.
-│   ├── 09-comparisons/               ← BAML vs Instructor, Vercel AI SDK, etc.
-│   └── functions/                    ← Function definition deep-dives
-│
-├── 02-examples/
-│   └── interactive-examples.mdx      ← Interactive playground examples
-│
-├── 03-reference/                     ← API and language reference
-│   ├── overview.mdx                  ← Reference overview
-│   ├── generator.mdx                 ← generator {} block reference
-│   ├── baml/                         ← BAML language syntax reference
-│   ├── baml_client/                  ← Generated client API reference (TypeScript-first)
-│   ├── baml-cli/                     ← CLI commands reference
-│   ├── vscode-ext/                   ← VSCode extension reference
-│   └── cloud/                        ← BAML Cloud reference
-│
-├── snippets/                         ← Reusable MDX code snippets
-│   ├── allowed-role-metadata.mdx
-│   ├── allowed-role-metadata-basic.mdx
-│   ├── client-constructor.mdx
-│   ├── client-response-type.mdx
-│   ├── dynamic-class-test.mdx
-│   ├── finish-reason.mdx
-│   ├── media-url-handler.mdx
-│   ├── openapi-howto-rely-on-envvars.mdx
-│   ├── role-selection.mdx
-│   ├── setting-env-vars.mdx
-│   ├── supported-types.mdx
-│   ├── supports-streaming.mdx
-│   ├── supports-streaming-openai.mdx
-│   └── baml/                         ← BAML-specific code snippets
-│
-├── openapi/                          ← OpenAPI integration
-└── pages/                            ← Additional documentation pages
+│   ├── functions
+│   │   ├── environment-variables.mdx
+│   │   ├── get-started.mdx
+│   │   └── using-openapi.mdx
+│   ├── introduction.mdx
+│   ├── what-are-function-definitions.mdx
+│   ├── what-is-baml_client.mdx
+│   ├── what-is-baml_src.mdx
+│   └── why-baml.mdx
+├── 02-examples
+│   └── interactive-examples.mdx
+├── 03-reference
+│   ├── baml
+│   │   ├── array.mdx
+│   │   ├── attributes
+│   │   │   ├── alias.mdx
+│   │   │   ├── assert.mdx
+│   │   │   ├── attributes-overview.mdx
+│   │   │   ├── check.mdx
+│   │   │   ├── description.mdx
+│   │   │   ├── dynamic.mdx
+│   │   │   ├── jinja-checks-and-asserts.mdx
+│   │   │   └── skip.mdx
+│   │   ├── bool.mdx
+│   │   ├── class.mdx
+│   │   ├── client-llm.mdx
+│   │   ├── clients
+│   │   │   ├── providers
+│   │   │   │   ├── anthropic.mdx
+│   │   │   │   ├── aws-bedrock.mdx
+│   │   │   │   ├── azure.mdx
+│   │   │   │   ├── cerebras.mdx
+│   │   │   │   ├── google-ai.mdx
+│   │   │   │   ├── groq.mdx
+│   │   │   │   ├── huggingface.mdx
+│   │   │   │   ├── keywordsai.mdx
+│   │   │   │   ├── litellm.mdx
+│   │   │   │   ├── llama-api.mdx
+│   │   │   │   ├── lmstudio.mdx
+│   │   │   │   ├── microsoft-foundry.mdx
+│   │   │   │   ├── ollama.mdx
+│   │   │   │   ├── openai-generic.mdx
+│   │   │   │   ├── openai-responses.mdx
+│   │   │   │   ├── openai.mdx
+│   │   │   │   ├── openrouter.mdx
+│   │   │   │   ├── tinfoil.mdx
+│   │   │   │   ├── together.mdx
+│   │   │   │   ├── unify.mdx
+│   │   │   │   ├── vercel-ai-gateway.mdx
+│   │   │   │   ├── vertex.mdx
+│   │   │   │   └── vllm.mdx
+│   │   │   ├── strategy
+│   │   │   │   ├── fallback.mdx
+│   │   │   │   ├── retry.mdx
+│   │   │   │   └── round-robin.mdx
+│   │   │   └── timeouts.mdx
+│   │   ├── comments.mdx
+│   │   ├── enum.mdx
+│   │   ├── env-vars.mdx
+│   │   ├── function.mdx
+│   │   ├── int-float.mdx
+│   │   ├── map.mdx
+│   │   ├── media.mdx
+│   │   ├── prompt-syntax
+│   │   │   ├── comments.mdx
+│   │   │   ├── conditionals.mdx
+│   │   │   ├── ctx.mdx
+│   │   │   ├── jinja-filters.mdx
+│   │   │   ├── loops.mdx
+│   │   │   ├── output-format.mdx
+│   │   │   ├── role.mdx
+│   │   │   ├── variables.mdx
+│   │   │   └── what-is-jinja.mdx
+│   │   ├── string.mdx
+│   │   ├── template_string.mdx
+│   │   ├── test.mdx
+│   │   └── types.mdx
+│   ├── baml-cli
+│   │   ├── dev.mdx
+│   │   ├── fmt.mdx
+│   │   ├── generate.mdx
+│   │   ├── init.mdx
+│   │   ├── serve.mdx
+│   │   └── test.mdx
+│   ├── baml_client
+│   │   ├── abort-signal.mdx
+│   │   ├── audio.mdx
+│   │   ├── client-option.mdx
+│   │   ├── client.mdx
+│   │   ├── collector.mdx
+│   │   ├── config.mdx
+│   │   ├── errors
+│   │   │   ├── baml-abort-error.mdx
+│   │   │   ├── baml-client-finish-reason-error.mdx
+│   │   │   ├── baml-validation-error.mdx
+│   │   │   └── overview.mdx
+│   │   ├── image.mdx
+│   │   ├── media.mdx
+│   │   ├── ontick.mdx
+│   │   ├── pdf.mdx
+│   │   ├── proposal.mdx
+│   │   ├── react-nextjs
+│   │   │   ├── hook-data.mdx
+│   │   │   ├── hook-input.mdx
+│   │   │   ├── hook-output.mdx
+│   │   │   └── use-function-name.mdx
+│   │   ├── typebuilder.mdx
+│   │   ├── video.mdx
+│   │   └── with_options.mdx
+│   ├── cloud
+│   │   └── limits.mdx
+│   ├── generator.mdx
+│   ├── overview.mdx
+│   └── vscode-ext
+│       ├── clipath.mdx
+│       ├── enablePlaygroundProxy.mdx
+│       ├── generateCodeOnSave.mdx
+│       └── syncExtensionToGeneratorVersion.mdx
+├── openapi
+│   └── openapi.yaml
+├── pages
+│   ├── changelog.mdx
+│   └── welcome.mdx
+└── snippets
+    ├── allowed-role-metadata-basic.mdx
+    ├── allowed-role-metadata.mdx
+    ├── baml
+    │   ├── cli
+    │   │   ├── generate.mdx
+    │   │   └── install
+    │   │       └── nodejs.mdx
+    │   ├── clients
+    │   │   ├── openai-responses.mdx
+    │   │   └── openai.mdx
+    │   └── prompts
+    │       └── story.mdx
+    ├── client-constructor.mdx
+    ├── client-response-type.mdx
+    ├── dynamic-class-test.mdx
+    ├── finish-reason.mdx
+    ├── media-url-handler.mdx
+    ├── openapi-howto-rely-on-envvars.mdx
+    ├── role-selection.mdx
+    ├── setting-env-vars.mdx
+    ├── supported-types.mdx
+    ├── supports-streaming-openai.mdx
+    └── supports-streaming.mdx
 ```
 
 ---
